@@ -83,67 +83,100 @@
 
                 <div class="flex flex-wrap justify-center gap-8">
                     <!-- Plano 1 -->
-                    <div class="plan-card w-full max-w-sm bg-gray-50 rounded-2xl shadow-lg border border-gray-200 p-8">
-                        <h3 class="text-2xl font-bold text-gray-800">Plano Controle</h3>
-                        <p class="claro-red-text font-semibold mt-1">17 GIGA NO TOTAL</p>
-                        <div class="my-6">
-                            <span class="text-5xl font-extrabold text-gray-900">R$39</span>
-                            <span class="text-gray-600 font-medium">,99/mês</span>
+                    <div class="plan-card w-full max-w-sm bg-gray-50 rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col">
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold text-gray-800">Claro-pós 21GB</h3>
+                            <p class="claro-red-text font-semibold mt-1">NOVIDADE!</p>
+                            <div class="my-6">
+                                <span class="text-5xl font-extrabold text-gray-900">R$39</span>
+                                <span class="text-gray-600 font-medium">,99/mês</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-700 text-left">
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">6GB</span> de uso livre</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">+10GB</span> de bônus extra</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">+5GB</span> para redes sociais</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>WhatsApp e outros apps ilimitados</span>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 claro-red-text" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                <span><span class="font-bold">6 Giga</span> do plano</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 claro-red-text" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><span class="font-bold">+11 Giga</span> de bônus</span>
-                            </li>
-                        </ul>
                         <button class="w-full claro-red text-white font-bold py-3 px-6 rounded-lg mt-8 btn-contratar">Contratar Agora</button>
+                        <p class="text-xs text-gray-500 mt-3 text-center">Oferta exclusiva para portabilidade no CNPJ.</p>
                     </div>
 
                     <!-- Plano 2 (Destaque) -->
-                    <div class="plan-card w-full max-w-sm bg-white rounded-2xl shadow-2xl border-2 border-red-600 p-8 relative">
+                    <div class="plan-card w-full max-w-sm bg-white rounded-2xl shadow-2xl border-2 border-red-600 p-8 relative flex flex-col">
                         <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-red-600 text-white text-sm font-bold px-4 py-1 rounded-full">MAIS POPULAR</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Plano Controle</h3>
-                        <p class="claro-red-text font-semibold mt-1">40 GIGA NO TOTAL</p>
-                        <div class="my-6">
-                            <span class="text-5xl font-extrabold text-gray-900">R$49</span>
-                            <span class="text-gray-600 font-medium">,99/mês</span>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold text-gray-800">Claro-pós 40GB</h3>
+                            <p class="claro-red-text font-semibold mt-1">MELHOR CUSTO-BENEFÍCIO</p>
+                            <div class="my-6">
+                                <span class="text-5xl font-extrabold text-gray-900">R$49</span>
+                                <span class="text-gray-600 font-medium">,99/mês</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-700 text-left">
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">15GB</span> de uso livre</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">+15GB</span> de bônus extra</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">+10GB</span> para redes sociais</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>WhatsApp e outros apps ilimitados</span>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 claro-red-text" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                <span><span class="font-bold">15 Giga</span> do plano</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 claro-red-text" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><span class="font-bold">+25 Giga</span> de bônus</span>
-                            </li>
-                        </ul>
                         <button class="w-full claro-red text-white font-bold py-3 px-6 rounded-lg mt-8 btn-contratar">Contratar Agora</button>
+                        <p class="text-xs text-gray-500 mt-3 text-center">Oferta exclusiva para portabilidade no CNPJ.</p>
                     </div>
 
                     <!-- Plano 3 -->
-                    <div class="plan-card w-full max-w-sm bg-gray-50 rounded-2xl shadow-lg border border-gray-200 p-8">
-                        <h3 class="text-2xl font-bold text-gray-800">Plano Controle</h3>
-                        <p class="claro-red-text font-semibold mt-1">70 GIGA NO TOTAL</p>
-                        <div class="my-6">
-                            <span class="text-5xl font-extrabold text-gray-900">R$59</span>
-                            <span class="text-gray-600 font-medium">,99/mês</span>
+                    <div class="plan-card w-full max-w-sm bg-gray-50 rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col">
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold text-gray-800">Claro-pós 70GB</h3>
+                            <p class="claro-red-text font-semibold mt-1">MAIS INTERNET</p>
+                            <div class="my-6">
+                                <span class="text-5xl font-extrabold text-gray-900">R$59</span>
+                                <span class="text-gray-600 font-medium">,99/mês</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-700 text-left">
+                               <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">25GB</span> de uso livre</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">+25GB</span> de bônus extra</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-bold">+20GB</span> para redes sociais</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 claro-red-text mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>WhatsApp e outros apps ilimitados</span>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="space-y-4 text-gray-700">
-                           <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 claro-red-text" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                <span><span class="font-bold">25 Giga</span> do plano</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 claro-red-text" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><span class="font-bold">+45 Giga</span> de bônus</span>
-                            </li>
-                        </ul>
                         <button class="w-full claro-red text-white font-bold py-3 px-6 rounded-lg mt-8 btn-contratar">Contratar Agora</button>
+                        <p class="text-xs text-gray-500 mt-3 text-center">Oferta exclusiva para portabilidade no CNPJ.</p>
                     </div>
                 </div>
             </div>
@@ -210,3 +243,4 @@
 
 </body>
 </html>
+
