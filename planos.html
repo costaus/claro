@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claro - Escolha seu Plano</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Custom Styles -->
+    
+    <!-- Custom Styles (Estilos Específicos) -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -22,6 +23,7 @@
         .claro-red-text {
             color: #DA291C;
         }
+        /* Efeitos de Hover nos Cards */
         .plan-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -29,6 +31,7 @@
             transform: translateY(-8px); /* Efeito de levantamento mais notável */
             box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.1), 0 10px 12px -6px rgb(0 0 0 / 0.05); /* Sombra mais forte */
         }
+        /* Efeitos de Hover nos Botões */
         .btn-contratar {
             transition: background-color 0.3s ease;
         }
@@ -46,7 +49,9 @@
 </head>
 <body class="bg-gray-100">
 
-    <!-- Header -->
+    <!-- ============================================== -->
+    <!--                  HEADER / NAVEGAÇÃO            -->
+    <!-- ============================================== -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html">
@@ -63,6 +68,9 @@
         </div>
     </header>
 
+    <!-- ============================================== -->
+    <!--                     CONTEÚDO PRINCIPAL         -->
+    <!-- ============================================== -->
     <main class="py-16 md:py-20">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 text-center mb-4">Escolha o plano ideal para você!</h1>
@@ -149,7 +157,7 @@
                     </div>
                 </div>
             </section>
-            
+                        
             <!-- Seção Planos Residencial (Fibra) -->
             <section id="planos-residenciais">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 claro-red-text text-center md:text-left">Claro Fibra - Residencial</h2>
@@ -188,10 +196,12 @@
             </section>
         </div>
     </main>
-    
-    <!-- Modal de Contratação (Escondido por padrão) -->
-    <div id="contractModal" class="fixed inset-0 modal-backdrop hidden justify-center items-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-lg w-full shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+
+    <!-- ============================================== -->
+    <!--                  MODAL DE CONTRATAÇÃO          -->
+    <!-- ============================================== -->
+    <div id="contractModal" class="fixed inset-0 modal-backdrop hidden justify-center items-center z-50 overflow-y-auto">
+        <div id="modalContent" class="bg-white rounded-xl p-8 max-w-lg w-full shadow-2xl transform transition-all duration-300 scale-95 opacity-0 my-8 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-6 border-b pb-3">
                 <h2 class="text-2xl font-bold claro-red-text">Finalizar Contratação</h2>
                 <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
@@ -200,12 +210,12 @@
                     </svg>
                 </button>
             </div>
-            
+                        
             <p class="mb-4 text-gray-600">Para iniciar o processo de contratação do plano <strong id="selectedPlanName" class="claro-red-text"></strong>, por favor, preencha seus dados:</p>
 
             <form id="contractForm" onsubmit="handleFormSubmit(event)">
                 <input type="hidden" id="planInput" name="plan">
-                
+                                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Nome Completo -->
                     <div class="mb-2 md:col-span-2">
@@ -240,12 +250,10 @@
                     <!-- CEP -->
                     <div class="mb-2 md:col-span-2">
                         <label for="cep" class="block text-sm font-medium text-gray-700 mb-1">CEP</label>
-                        <!-- Adicionado onblur para iniciar a busca por CEP -->
-                        <input type="text" id="cep" name="cep" required onblur="searchCep()" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500" placeholder="00000-000">
+                        <input type="text" id="cep" name="cep" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500" placeholder="00000-000">
                     </div>
-
                 </div>
-                
+
                 <!-- CONTAINER DE ENDEREÇO: Inicialmente escondido (hidden) -->
                 <div id="addressFields" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 hidden">
                     <!-- Rua -->
@@ -254,13 +262,13 @@
                         <!-- Campo readonly preenchido pelo CEP -->
                         <input type="text" id="street" name="street" required readonly class="w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg">
                     </div>
-                    
+
                     <!-- Número e Bairro -->
                     <div class="mb-2">
                         <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Número</label>
                         <input type="text" id="number" name="number" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500">
                     </div>
-                    
+
                     <div class="mb-2">
                         <label for="neighborhood" class="block text-sm font-medium text-gray-700 mb-1">Bairro</label>
                         <!-- Campo readonly preenchido pelo CEP -->
@@ -273,7 +281,7 @@
                         <!-- Campo readonly preenchido pelo CEP -->
                         <input type="text" id="city" name="city" required readonly class="w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg">
                     </div>
-                    
+
                     <div class="mb-6">
                         <label for="state" class="block text-sm font-medium text-gray-700 mb-1">Estado</label>
                         <!-- Campo readonly preenchido pelo CEP -->
@@ -281,7 +289,7 @@
                     </div>
                 </div>
                 <!-- FIM DO CONTAINER DE ENDEREÇO -->
-                
+
                 <button type="submit" class="w-full btn-contratar claro-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-lg">
                     Confirmar e Ir para WhatsApp
                 </button>
@@ -289,7 +297,9 @@
         </div>
     </div>
 
-    <!-- Footer (Atualizado) -->
+    <!-- ============================================== -->
+    <!--                     FOOTER                     -->
+    <!-- ============================================== -->
     <footer class="bg-gray-800 text-white mt-12">
         <div class="container mx-auto px-6 py-8 text-center">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Claro.svg" alt="Logo Claro" class="h-10 mx-auto mb-6">
@@ -297,19 +307,23 @@
             <p class="text-gray-500 text-sm mt-2">Esta é uma página de vendas conceitual. As ofertas e condições podem variar.</p>
         </div>
     </footer>
-    
+
+    <!-- ============================================== -->
+    <!--                  JAVASCRIPT LÓGICA             -->
+    <!-- ============================================== -->
     <script>
-        // Número de telefone para o WhatsApp (35) 98446-5948 (formato API: 55+DDD+Número)
+        // Configuração
         const WHATSAPP_NUMBER = '5535984465948'; 
 
+        // Elementos DOM
         const modal = document.getElementById('contractModal');
         const modalContent = document.getElementById('modalContent');
         const planInput = document.getElementById('planInput');
         const selectedPlanName = document.getElementById('selectedPlanName');
         const form = document.getElementById('contractForm');
-        const addressFields = document.getElementById('addressFields'); // Novo container de endereço
+        const addressFields = document.getElementById('addressFields'); 
         
-        // Elementos do formulário
+        // Inputs
         const cnpjInput = document.getElementById('cnpj');
         const phoneInput = document.getElementById('phone');
         const cepInput = document.getElementById('cep');
@@ -317,7 +331,7 @@
         const neighborhoodInput = document.getElementById('neighborhood');
         const cityInput = document.getElementById('city');
         const stateInput = document.getElementById('state');
-        
+
         // --- Funções do Modal ---
         function openModal(planName) {
             planInput.value = planName; 
@@ -333,6 +347,9 @@
             stateInput.required = false;
             document.getElementById('number').required = false;
 
+            // Melhoria de Acessibilidade: Foca no primeiro campo do formulário
+            document.getElementById('name').focus(); 
+
             setTimeout(() => {
                 modalContent.classList.remove('opacity-0', 'scale-95');
                 modalContent.classList.add('opacity-100', 'scale-100');
@@ -342,14 +359,14 @@
         function closeModal() {
             modalContent.classList.remove('opacity-100', 'scale-100');
             modalContent.classList.add('opacity-0', 'scale-95');
-            
+
             setTimeout(() => {
                 modal.classList.remove('flex');
                 modal.classList.add('hidden');
                 form.reset(); 
             }, 300);
         }
-        
+
         // --- Funções de Máscara ---
 
         // Máscara CNPJ (00.000.000/0000-00)
@@ -386,23 +403,29 @@
             e.target.value = value;
         });
 
-        // Máscara CEP (00000-000)
+        // Máscara CEP (00000-000) - Busca automática ao completar 8 dígitos
         cepInput.addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, ''); 
             if (value.length > 8) value = value.slice(0, 8);
+            
+            const shouldSearch = value.length === 8; 
+
             if (value.length > 5) {
                 value = value.replace(/^(\d{5})(\d{3})$/, '$1-$2');
             }
             e.target.value = value;
+            
+            if (shouldSearch) {
+                searchCep();
+            }
         });
 
         // --- Função de Busca por CEP (ViaCEP) ---
         async function searchCep() {
             const cep = cepInput.value.replace(/\D/g, '');
-            
+
             // Esconde os campos por padrão
             addressFields.classList.add('hidden');
-            
             // Limpa campos de endereço e remove o 'required'
             streetInput.value = '';
             neighborhoodInput.value = '';
@@ -426,7 +449,7 @@
                     neighborhoodInput.value = data.bairro || '';
                     cityInput.value = data.localidade || '';
                     stateInput.value = data.uf || '';
-                    
+
                     // Se a busca for bem-sucedida, mostra os campos de endereço e adiciona 'required'
                     addressFields.classList.remove('hidden');
                     streetInput.required = true;
@@ -446,13 +469,14 @@
         function handleFormSubmit(event) {
             event.preventDefault();
 
+            // Captura de dados
             const name = document.getElementById('name').value;
             const cnpj = cnpjInput.value;
             const email = document.getElementById('email').value;
             const phone = phoneInput.value;
             const birthdate = document.getElementById('birthdate').value;
             const plan = planInput.value;
-            
+
             // Dados de Endereço (somente se estiverem visíveis)
             let addressMessage = '';
             if (!addressFields.classList.contains('hidden')) {
@@ -462,39 +486,35 @@
                 const neighborhood = neighborhoodInput.value;
                 const city = cityInput.value;
                 const state = stateInput.value;
-                
+
                 addressMessage = `\n*Endereço de Instalação:*\n` +
                                  `CEP: ${cep}\n` +
                                  `Rua: ${street}, Nº ${number}\n` +
                                  `Bairro: ${neighborhood}\n` +
                                  `Cidade/UF: ${city}/${state}\n\n`;
             }
-            
+
             // Formatação da data 
             const dateParts = birthdate.split('-'); // YYYY-MM-DD
             const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`; // DD/MM/YYYY
-            
+
             // Montagem da mensagem detalhada
             const message = `*SOLICITAÇÃO DE CONTRATAÇÃO CLARO - CNPJ*\n\n` +
                             `*Plano Escolhido:* ${plan}\n\n` +
-                            
                             `*Dados Pessoais/PJ:*\n` +
                             `Nome: ${name}\n` +
                             `CNPJ: ${cnpj}\n` +
                             `Nascimento: ${formattedDate}\n` +
                             `Email: ${email}\n` +
                             `Telefone: ${phone}\n` +
-                            
                             addressMessage +
-                            
                             `Por favor, prossiga com a contratação.`;
 
             // Codificação e envio
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
-            
+
             window.open(whatsappUrl, '_self'); 
-            
             closeModal();
         }
     </script>
