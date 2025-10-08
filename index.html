@@ -22,6 +22,7 @@
             color: #DA291C;
         }
         .hero-bg {
+            /* Gradiente de fundo escuro para o Hero */
             background: linear-gradient(45deg, #DA291C 0%, #a81c12 100%);
         }
         .plan-card {
@@ -40,49 +41,59 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
+    
+    <!-- ============================================== -->
+    <!--                  HEADER / NAVEGAÇÃO            -->
+    <!-- ============================================== -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Claro.svg" alt="Logo Claro" class="h-8 md:h-10">
             </div>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="planos.html" class="text-gray-600 hover:claro-red-text font-medium">Planos</a>
+                <!-- Link para a página de Planos (index.html) -->
+                <a href="index.html" class="text-gray-600 hover:claro-red-text font-medium">Planos</a>
                 <a href="#vantagens" class="text-gray-600 hover:claro-red-text font-medium">Vantagens</a>
                 <a href="#" class="text-gray-600 hover:claro-red-text font-medium">Contato</a>
             </nav>
-            <a href="planos.html" class="claro-red text-white font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
+            <a href="index.html" class="claro-red text-white font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
                 Contrate Já
             </a>
         </div>
     </header>
-
-    <!-- Hero Section -->
+    
+    <!-- ============================================== -->
+    <!--                  HERO SECTION                  -->
+    <!-- ============================================== -->
     <main>
         <section class="hero-bg text-white">
             <div class="container mx-auto px-6 py-20 md:py-32 text-center">
                 <!-- LOGO MAIOR E COM SOMBRA AJUSTADA -->
                 <div class="flex justify-center mb-8">
-                    <!-- Classe h-32 (altura) e drop-shadow-xl (sombra forte) para visibilidade -->
                     <img src="https://files.catbox.moe/7ld5rn.png" alt="Logo Claro Icon" class="h-32 w-auto drop-shadow-xl">
                 </div>
-                <!-- FIM DA NOVA IMAGEM -->
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">A conexão que muda tudo.</h1>
                 <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-red-100">Planos com o dobro de internet para você navegar, assistir e compartilhar sem limites. Venha para a Claro!</p>
-                <a href="planos.html" class="bg-white claro-red-text font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                <!-- Botão Ver Planos linka para a página de Planos (index.html) -->
+                <a href="index.html" class="bg-white claro-red-text font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
                     Ver Planos
                 </a>
             </div>
         </section>
-
-        <!-- Vantagens Section -->
+        
+        <!-- ============================================== -->
+        <!--                VANTAGENS SECTION               -->
+        <!-- ============================================== -->
         <section id="vantagens" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Muito mais que só internet</h2>
                     <p class="text-gray-600 mt-2">Veja as vantagens de ser Claro.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <!-- REMOVIDA A QUARTA VANTAGEM, MUDANDO O LAYOUT PARA 3 COLUNAS EM TELAS MAIORES -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
+                    
+                    <!-- Vantagem 1: Conexão 5G -->
                     <div class="bg-white p-6 rounded-lg shadow">
                         <div class="claro-red inline-block p-4 rounded-full mb-4">
                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -92,6 +103,8 @@
                         <h3 class="font-bold text-lg mb-2">Conexão 5G</h3>
                         <p class="text-gray-600 text-sm">Navegue com a máxima velocidade disponível na sua região.</p>
                     </div>
+                    
+                    <!-- Vantagem 2: Cobertura Nacional -->
                     <div class="bg-white p-6 rounded-lg shadow">
                         <div class="claro-red inline-block p-4 rounded-full mb-4">
                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -102,6 +115,8 @@
                         <h3 class="font-bold text-lg mb-2">Cobertura Nacional</h3>
                         <p class="text-gray-600 text-sm">Esteja sempre conectado em qualquer lugar do Brasil.</p>
                     </div>
+                    
+                    <!-- Vantagem 3: Apps Ilimitados -->
                     <div class="bg-white p-6 rounded-lg shadow">
                         <div class="claro-red inline-block p-4 rounded-full mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -111,25 +126,20 @@
                         <h3 class="font-bold text-lg mb-2">Apps Ilimitados</h3>
                         <p class="text-gray-600 text-sm">Use WhatsApp, Waze e outros apps sem gastar sua franquia.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="claro-red inline-block p-4 rounded-full mb-4">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Sem Fidelidade</h3>
-                        <p class="text-gray-600 text-sm">Cancele quando quiser, sem multas e sem burocracia.</p>
-                    </div>
                 </div>
+                <!-- FIM DAS VANTAGENS -->
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
+    
+    <!-- ============================================== -->
+    <!--                     FOOTER                     -->
+    <!-- ============================================== -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-8 text-center">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Claro.svg" alt="Logo Claro" class="h-10 mx-auto mb-6">
-            <p class="text-gray-400">&copy; 2025 MF Claro. Todos os direitos reservados.</p>
+            <!-- Adicionado "Agente Autorizado" e ajustado o espaçamento -->
+            <p class="text-gray-400">&copy; 2025 MF Claro | <strong class="text-red-500">Agente Autorizado</strong>. Todos os direitos reservados.</p>
             <p class="text-gray-500 text-sm mt-2">Esta é uma página de vendas conceitual. As ofertas e condições podem variar.</p>
         </div>
     </footer>
