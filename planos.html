@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claro - Escolha seu Plano</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+        .claro-red {
+            background-color: #DA291C;
+        }
+        .claro-red-text {
+            color: #DA291C;
+        }
+        .plan-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px -5px rgb(0 0 0 / 0.1), 0 6px 8px -4px rgb(0 0 0 / 0.1);
+        }
+        .btn-contratar {
+            transition: background-color 0.3s ease;
+        }
+        .btn-contratar:hover {
+            background-color: #b91c1c; /* darker red */
+        }
+        .plan-header {
+            background-color: #DA291C;
+        }
+        /* Modal backdrop para o formulário */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <!-- Logo para voltar ao início -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Claro.svg" alt="Logo Claro" class="h-8 md:h-10">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <!-- Links para voltar à página inicial -->
+                <a href="index.html" class="text-gray-600 hover:claro-red-text font-medium">Início</a>
+            </nav>
+            <a href="#planos-moveis" class="claro-red text-white font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
+                Fale Conosco
+            </a>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 text-center mb-4">Escolha o plano ideal para você!</h1>
+            <p class="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">Temos opções de planos móveis e internet residencial de alta velocidade.</p>
+
+            <!-- Seção Planos Móveis (Claro-Pós) -->
+            <section id="planos-moveis" class="mb-20">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 claro-red-text text-center md:text-left">Claro Pós - Celular</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1: Claro-pós 21GB -->
+                    <div class="plan-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="plan-header p-4 text-white font-bold text-center">
+                            <span class="text-sm border border-white rounded-full px-2 py-0.5 mr-2">NOVIDADE!</span> Claro-pós
+                            <div class="text-4xl font-extrabold my-1">21GB</div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="flex justify-around mb-4 text-sm font-semibold text-gray-700">
+                                <span>6GB Uso Livre</span>
+                                <span>10GB Bônus Extra</span>
+                                <span>5GB Redes Sociais</span>
+                            </div>
+                            <div class="border-t pt-4">
+                                <p class="text-sm claro-red-text font-bold mb-2">OFERTA EXCLUSIVA PORTABILIDADE</p>
+                                <div class="text-3xl font-extrabold claro-red-text">
+                                    R$ 39,<span class="text-xl align-top">99</span> <span class="text-base text-gray-500 font-normal block">/MÊS POR LINHA</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2">EXCLUSIVO NO CNPJ</p>
+                            </div>
+                            <button onclick="openModal('Claro Pós 21GB')" class="w-full mt-6 btn-contratar claro-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-md">
+                                Contratar Agora
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Claro-pós 40GB -->
+                    <div class="plan-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="plan-header p-4 text-white font-bold text-center">
+                            Claro-pós
+                            <div class="text-4xl font-extrabold my-1">40GB</div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="flex justify-around mb-4 text-sm font-semibold text-gray-700">
+                                <span>15GB Uso Livre</span>
+                                <span>15GB Bônus Extra</span>
+                                <span>10GB Redes Sociais</span>
+                            </div>
+                            <div class="border-t pt-4">
+                                <p class="text-sm claro-red-text font-bold mb-2">OFERTA EXCLUSIVA PORTABILIDADE</p>
+                                <div class="text-3xl font-extrabold claro-red-text">
+                                    R$ 49,<span class="text-xl align-top">99</span> <span class="text-base text-gray-500 font-normal block">/MÊS POR LINHA</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2">EXCLUSIVO NO CNPJ</p>
+                            </div>
+                            <button onclick="openModal('Claro Pós 40GB')" class="w-full mt-6 btn-contratar claro-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-md">
+                                Contratar Agora
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Claro-pós 70GB -->
+                    <div class="plan-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="plan-header p-4 text-white font-bold text-center">
+                            Claro-pós
+                            <div class="text-4xl font-extrabold my-1">70GB</div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="flex justify-around mb-4 text-sm font-semibold text-gray-700">
+                                <span>25GB Uso Livre</span>
+                                <span>25GB Bônus Extra</span>
+                                <span>20GB Redes Sociais</span>
+                            </div>
+                            <div class="border-t pt-4">
+                                <p class="text-sm claro-red-text font-bold mb-2">OFERTA EXCLUSIVA PORTABILIDADE</p>
+                                <div class="text-3xl font-extrabold claro-red-text">
+                                    R$ 59,<span class="text-xl align-top">99</span> <span class="text-base text-gray-500 font-normal block">/MÊS POR LINHA</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2">EXCLUSIVO NO CNPJ</p>
+                            </div>
+                            <button onclick="openModal('Claro Pós 70GB')" class="w-full mt-6 btn-contratar claro-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-md">
+                                Contratar Agora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção Planos Residencial (Fibra) -->
+            <section id="planos-residenciais">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 claro-red-text text-center md:text-left">Claro Fibra - Residencial</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    
+                    <!-- Card 4: Claro Fibra 600 Mega -->
+                    <div class="plan-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="plan-header p-4 text-white font-bold text-center">
+                            <div class="text-4xl font-extrabold my-1">600 MEGA</div>
+                            <p class="text-sm font-normal">GRUPO MERCADOS EM DESENVOLVIMENTO</p>
+                        </div>
+                        <div class="flex">
+                            <!-- Opção Single -->
+                            <div class="w-1/2 p-6 text-center border-r">
+                                <h3 class="font-bold text-lg mb-4 text-gray-800">SINGLE</h3>
+                                <div class="text-3xl font-extrabold claro-red-text mb-2">R$ 59,<span class="text-xl align-top">90</span></div>
+                                <p class="text-xs text-gray-500">POR 6 MESES</p>
+                                <p class="text-xs text-gray-500">APÓS R$ 99,90</p>
+                                <button onclick="openModal('Claro Fibra 600MB - Single')" class="w-full mt-4 btn-contratar claro-red text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-red-700 transition duration-300 shadow-md">
+                                    Contratar
+                                </button>
+                            </div>
+                            <!-- Opção Combinado -->
+                            <div class="w-1/2 p-6 text-center">
+                                <h3 class="font-bold text-lg mb-4 text-gray-800">COMBINADO</h3>
+                                <div class="text-3xl font-extrabold claro-red-text mb-2">R$ 49,<span class="text-xl align-top">90</span></div>
+                                <p class="text-xs text-gray-500">POR 6 MESES</p>
+                                <p class="text-xs text-gray-500">APÓS R$ 79,90</p>
+                                <button onclick="openModal('Claro Fibra 600MB - Combinado')" class="w-full mt-4 btn-contratar claro-red text-white font-bold py-2 px-4 rounded-full text-sm hover:bg-red-700 transition duration-300 shadow-md">
+                                    Contratar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Modal de Contratação (Escondido por padrão) -->
+    <div id="contractModal" class="fixed inset-0 modal-backdrop hidden justify-center items-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+            <div class="flex justify-between items-center mb-6 border-b pb-3">
+                <h2 class="text-2xl font-bold claro-red-text">Finalizar Contratação</h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <p class="mb-4 text-gray-600">Para iniciar o processo de contratação do plano <strong id="selectedPlanName" class="claro-red-text"></strong>, por favor, preencha seus dados:</p>
+
+            <form id="contractForm" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" id="planInput" name="plan">
+                
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="cpf" class="block text-sm font-medium text-gray-700 mb-1">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500" placeholder="000.000.000-00">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="birthdate" class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento</label>
+                    <input type="date" id="birthdate" name="birthdate" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500">
+                </div>
+                
+                <button type="submit" class="w-full btn-contratar claro-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-lg">
+                    Confirmar e Ir para WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer (Atualizado) -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Claro.svg" alt="Logo Claro" class="h-10 mx-auto mb-6">
+            <p class="text-gray-400">&copy; 2025 MF Claro. Todos os direitos reservados.</p>
+            <p class="text-gray-500 text-sm mt-2">Esta é uma página de vendas conceitual. As ofertas e condições podem variar.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Número de telefone para o WhatsApp (deixado para você alterar)
+        const WHATSAPP_NUMBER = '5599999999999'; 
+
+        const modal = document.getElementById('contractModal');
+        const modalContent = document.getElementById('modalContent');
+        const planInput = document.getElementById('planInput');
+        const selectedPlanName = document.getElementById('selectedPlanName');
+        const form = document.getElementById('contractForm');
+        
+        // Função para abrir o modal
+        function openModal(planName) {
+            planInput.value = planName; // Define o nome do plano no campo escondido
+            selectedPlanName.textContent = planName; // Exibe o nome do plano no título do modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Animação para entrada suave
+            setTimeout(() => {
+                modalContent.classList.remove('opacity-0', 'scale-95');
+                modalContent.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            modalContent.classList.remove('opacity-100', 'scale-100');
+            modalContent.classList.add('opacity-0', 'scale-95');
+            
+            // Espera a transição terminar antes de esconder
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                form.reset(); // Limpa o formulário
+            }, 300);
+        }
+        
+        // Função para formatar o CPF (Máscara)
+        document.getElementById('cpf').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+            if (value.length > 11) value = value.slice(0, 11);
+
+            if (value.length > 9) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+            } else if (value.length > 6) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{3})$/, '$1.$2.$3');
+            } else if (value.length > 3) {
+                value = value.replace(/^(\d{3})(\d{3})$/, '$1.$2');
+            }
+            e.target.value = value;
+        });
+
+
+        // Função para lidar com o envio do formulário e redirecionar para o WhatsApp
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const cpf = document.getElementById('cpf').value;
+            const birthdate = document.getElementById('birthdate').value;
+            const plan = planInput.value;
+            
+            // Formatação da data para o WhatsApp
+            const dateParts = birthdate.split('-'); // YYYY-MM-DD
+            const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`; // DD/MM/YYYY
+            
+            // Montagem da mensagem
+            const message = `*SOLICITAÇÃO DE CONTRATAÇÃO CLARO*\n\n` +
+                            `*Plano Escolhido:* ${plan}\n` +
+                            `*Nome Completo:* ${name}\n` +
+                            `*CPF:* ${cpf}\n` +
+                            `*Data de Nasc.:* ${formattedDate}\n\n` +
+                            `Por favor, prossiga com a contratação.`;
+
+            // Codificação da mensagem para a URL do WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Montagem da URL final
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+            
+            // Abre o link do WhatsApp na mesma aba
+            window.open(whatsappUrl, '_self'); 
+            
+            closeModal(); // Fecha o modal após o redirecionamento
+        }
+    </script>
+</body>
+</html>
