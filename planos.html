@@ -244,6 +244,10 @@
                         <input type="text" id="cep" name="cep" required onblur="searchCep()" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring claro-red-text focus:border-red-500" placeholder="00000-000">
                     </div>
 
+                </div>
+                
+                <!-- CONTAINER DE ENDEREÇO: Inicialmente escondido (hidden) -->
+                <div id="addressFields" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 hidden">
                     <!-- Rua -->
                     <div class="mb-2 md:col-span-2">
                         <label for="street" class="block text-sm font-medium text-gray-700 mb-1">Rua/Avenida</label>
@@ -275,8 +279,8 @@
                         <!-- Campo readonly preenchido pelo CEP -->
                         <input type="text" id="state" name="state" required readonly class="w-full px-4 py-2 border border-gray-300 bg-gray-50 rounded-lg">
                     </div>
-
                 </div>
+                <!-- FIM DO CONTAINER DE ENDEREÇO -->
                 
                 <button type="submit" class="w-full btn-contratar claro-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 shadow-lg">
                     Confirmar e Ir para WhatsApp
@@ -303,6 +307,7 @@
         const planInput = document.getElementById('planInput');
         const selectedPlanName = document.getElementById('selectedPlanName');
         const form = document.getElementById('contractForm');
+        const addressFields = document.getElementById('addressFields'); // Novo container de endereço
         
         // Elementos do formulário
         const cnpjInput = document.getElementById('cnpj');
@@ -320,6 +325,14 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
+            // Garante que o campo de endereço comece escondido a cada abertura
+            addressFields.classList.add('hidden');
+            streetInput.required = false;
+            neighborhoodInput.required = false;
+            cityInput.required = false;
+            stateInput.required = false;
+            document.getElementById('number').required = false;
+
             setTimeout(() => {
                 modalContent.classList.remove('opacity-0', 'scale-95');
                 modalContent.classList.add('opacity-100', 'scale-100');
@@ -387,12 +400,20 @@
         async function searchCep() {
             const cep = cepInput.value.replace(/\D/g, '');
             
-            // Limpa campos de endereço
+            // Esconde os campos por padrão
+            addressFields.classList.add('hidden');
+            
+            // Limpa campos de endereço e remove o 'required'
             streetInput.value = '';
             neighborhoodInput.value = '';
             cityInput.value = '';
             stateInput.value = '';
-            
+            streetInput.required = false;
+            neighborhoodInput.required = false;
+            cityInput.required = false;
+            stateInput.required = false;
+            document.getElementById('number').required = false;
+
             if (cep.length !== 8) return;
 
             try {
@@ -405,6 +426,14 @@
                     neighborhoodInput.value = data.bairro || '';
                     cityInput.value = data.localidade || '';
                     stateInput.value = data.uf || '';
+                    
+                    // Se a busca for bem-sucedida, mostra os campos de endereço e adiciona 'required'
+                    addressFields.classList.remove('hidden');
+                    streetInput.required = true;
+                    neighborhoodInput.required = true;
+                    cityInput.required = true;
+                    stateInput.required = true;
+                    document.getElementById('number').required = true;
                 } else {
                     console.log("CEP não encontrado.");
                 }
@@ -424,13 +453,22 @@
             const birthdate = document.getElementById('birthdate').value;
             const plan = planInput.value;
             
-            // Dados de Endereço
-            const cep = cepInput.value;
-            const street = streetInput.value;
-            const number = document.getElementById('number').value;
-            const neighborhood = neighborhoodInput.value;
-            const city = cityInput.value;
-            const state = stateInput.value;
+            // Dados de Endereço (somente se estiverem visíveis)
+            let addressMessage = '';
+            if (!addressFields.classList.contains('hidden')) {
+                const cep = cepInput.value;
+                const street = streetInput.value;
+                const number = document.getElementById('number').value;
+                const neighborhood = neighborhoodInput.value;
+                const city = cityInput.value;
+                const state = stateInput.value;
+                
+                addressMessage = `\n*Endereço de Instalação:*\n` +
+                                 `CEP: ${cep}\n` +
+                                 `Rua: ${street}, Nº ${number}\n` +
+                                 `Bairro: ${neighborhood}\n` +
+                                 `Cidade/UF: ${city}/${state}\n\n`;
+            }
             
             // Formatação da data 
             const dateParts = birthdate.split('-'); // YYYY-MM-DD
@@ -445,13 +483,9 @@
                             `CNPJ: ${cnpj}\n` +
                             `Nascimento: ${formattedDate}\n` +
                             `Email: ${email}\n` +
-                            `Telefone: ${phone}\n\n` +
+                            `Telefone: ${phone}\n` +
                             
-                            `*Endereço de Instalação:*\n` +
-                            `CEP: ${cep}\n` +
-                            `Rua: ${street}, Nº ${number}\n` +
-                            `Bairro: ${neighborhood}\n` +
-                            `Cidade/UF: ${city}/${state}\n\n` +
+                            addressMessage +
                             
                             `Por favor, prossiga com a contratação.`;
 
